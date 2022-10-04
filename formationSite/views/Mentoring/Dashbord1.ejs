@@ -1,0 +1,108 @@
+
+
+    
+    <!doctype html>
+
+    <html class="no-js" lang="en"> 
+       <head>
+           <meta charset="utf-8">
+           <title>home</title>
+           <meta name="description" content="">
+           <link rel="icon" type="image/png" href="favicon.ico">
+           <link href="assets/img" rel="stylesheet">
+           <link href="assets/img/icons" rel="stylesheet">
+
+           <style>
+           
+    .check
+    {
+        height: 30px;
+        width:30px;
+    margin-left: 35px;
+    }
+
+            .bouttons 
+            {
+              display: inline-block;
+            }
+           </style>
+           
+   
+           <!--Google Font link-->
+         
+   
+   
+       </head>
+   
+       <body >
+        <%-include ('partials/headerAuth');-%> 
+    
+        
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Mes cours </li>
+          </ol>
+        </nav>
+
+           <div class="culmn">
+
+                      
+                      
+                          <%if (formation.length==0) {%>  
+                             <div class="container px-5">
+                               <div class="row">
+                            <h1 style="text-align: center;color: grey; margin-top: 20%;">No document found </h1>
+                       
+</div></div>
+                             <%}%>
+<% formation.forEach(i=>{ %>
+<div  style="background-color:#f3f2f5" class="shadow-lg p-3 mb-5 bg-body rounded ">
+<div class="card mb-3" style="max-width: 1000px;height: 230px; margin:30px;padding: 10px ;box-shadow: 10px;">
+<div class="row no-gutters">
+  <div class="col-md-4" >
+    <img src="<%=i.urlImage%>" class="card-img" alt="...">
+  </div>
+  <div class="col-md-8" >
+    <div class="card-body"  >
+        <div class="badge bg-primary bg-gradient rounded-pill mb-2" style="margin-left:580px"><%=i.category%></div>
+        <h5 class="card-title"><%=i.title%> <%if(i.isapprouved){%> <img  class="check" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUX4pRtmYYrWQW8isCBE7Bpxj7-Yv-5y1SB7_UWp_cZlC-qD2_RnLiaDbc84yKZctpDow&usqp=CAU"> <%}%></h5> 
+
+        <i class="fa fa-signal"> </i><%=i.niveau %>  
+      <p class="card-text"><small class="text-muted">created at  <%=new Date(i.createdAt).toLocaleDateString("el-GR")%></small></p>
+
+      
+        <table>
+            <tr>
+              <td><form action="formations/<%=i.id%>" method="get"><input  type="submit" value="consulter" class="btn btn-success float-right"/>
+            </form></td>
+            <td>
+            <form action="modifyForm/<%=i._id%>" method="get">   <input type="submit"  class="btn btn-info" value="modifier ">
+    </form> </td>
+      <td>
+        <button type="button" class="btn btn-danger"><a href="dashbord1/delete/<%=i._id%>" style="text-decoration: none;color:white"  > delete</a>  </button>
+    </td>
+
+  </tr>
+    </table>
+         
+ 
+</div>
+   </div>
+  </div>
+</div>
+</div>
+<%})%>
+<hr>
+          
+
+
+</div> 
+
+           </div>  
+          
+       </body>
+   </html>
+
+
+    

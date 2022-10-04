@@ -1,0 +1,69 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+</head>
+
+
+<div class="container">
+  <nav aria-label="breadcrumb" style="margin: 40px;">
+    <ol class="breadcrumb">
+      <%if(statut!="admin"){%> 
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/formations" >Cours </a></li>
+      <li class="breadcrumb-item"> <a href="/formations/<%=formation._id%>" ><%=formation.title%> </a></li>
+        <li class="breadcrumb-item active" aria-current="page">Chapter <%=j%> </li>
+  <%}  else {%>
+    <li class="breadcrumb-item"><a href="/homeAdmin">Home</a></li>
+    <li class="breadcrumb-item"><a href="/formationsa" >formations</a></li>
+    <li class="breadcrumb-item"> <a href="/formations/<%=formation._id%>" ><%=formation.title%> </a></li>
+      <li class="breadcrumb-item active" aria-current="page">Chapter <%=j%> </li>
+      <%}%>
+
+    </ol>
+  </nav> 
+
+<div class="card text-center">
+    <div class="card-header">
+     
+    <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item ">
+      <a class="page-link" href="/formations/fr/<%=formation._id%>/<%=pre%>">Previous</a>
+    </li>
+    <%for(i=0;i<formation.chapters.length;i++){%>
+
+       
+    <li class="page-item"><a class="page-link " href="/formations/fr/<%=formation._id%>/<%=i%>"><%=i%></a></li>
+    
+    
+        <%}%>
+      <a class="page-link" href="/formations/fr/<%=formation._id%>/<%=suiv%>">Next</a>
+    </li>
+  </ul>
+</nav>
+
+    </div>
+    <div class="card-body">
+
+     
+
+      <h5 class="card-title"><h1><%=formation.chapters[j].title%></h1></h5>
+      <p class="card-text"> <iframe  src="https://www.youtube.com/embed/<%=formation.chapters[j].urlVideo%>" width="900" height="500" frameborder="0" allowfullscreen></iframe>
+ 
+        <p style="margin:80px;text-align: justify;"><%=formation.chapters[j].content%></p>
+    </p>
+    </div>
+    <div class="card-footer text-muted">
+    
+    </div>
+  </div>
+</div>
+<footer class="py-5 bg-dark">
+  <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+</footer>
+
+
+
+
+

@@ -1,0 +1,65 @@
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="assets/css/commentaire.css" rel="stylesheet">
+<body>
+<div class="container">
+<div class="row">
+  <div class="col-md-8">
+    <div class="media g-mb-30 media-comment">
+        <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+          <div class="g-mb-15">
+         <form action="/addComment/<%=id%>/<%=formation._id%>" method="post">
+            <h5 class="h5 g-color-gray-dark-v1 "> <%=nom%> <%=prenom%></h5>
+          </div>
+          <textarea class="form-control" id="message" placeholder="Your message"  name="message"></textarea>
+          <input type="submit" value="publier " class="btn btn-primary" style="margin-left: 90%;margin-top: 30px;">    
+      </form>
+        </div>
+    </div>
+</div>
+
+ 
+<% if(formation.commentaires){ for(var z=0;z<formation.commentaires.length;z++) {%>
+  
+
+   <div class="col-md-8">
+        <div class="media g-mb-30 media-comment">
+            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+              <div class="g-mb-15">
+
+                <h5 class="h5 g-color-gray-dark-v1 mb-0">             
+                     <img class="d-flex g-width-50 g-height-50 rounded-circle g-mt-3 g-mr-15" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description"> <%=formation.commentaires[z].nom%> <%=formation.commentaires[z].prenom%></h5>
+                <span class="g-color-gray-dark-v4 g-font-size-12"> <%=formation.commentaires[z].createdAt%></span>
+              </div>
+        
+              <p><%=formation.commentaires[z].content%></p>
+        
+              <ul class="list-inline d-sm-flex my-0">
+                <li class="list-inline-item g-mr-20">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="fa fa-thumbs-up g-pos-rel g-top-1 g-mr-3"></i>
+                    178
+                  </a>
+                </li>
+                <li class="list-inline-item g-mr-20">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="fa fa-thumbs-down g-pos-rel g-top-1 g-mr-3"></i>
+                    34
+                  </a>
+                </li>
+                <li class="list-inline-item ml-auto">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="fa fa-reply g-pos-rel g-top-1 g-mr-3"></i>
+                    Reply
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+<%}}%>
+   
+</div>
+</div>
+<br>
+<br></body>

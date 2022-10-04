@@ -1,0 +1,561 @@
+
+        <!doctype html>
+
+ <html class="no-js" lang="en"> 
+    <head>
+        <meta charset="utf-8">
+        <title>home</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="favicon.ico">
+
+        <!--Google Font link-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/slick.css">
+        <link rel="stylesheet" href="assets/css/slick-theme.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/fonticons.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="assets/css/bootsnav.css">
+
+        <link rel="stylesheet" href="assets/css/style.css">
+ 
+      
+        <link rel="stylesheet" href="assets/css/responsive.css" />
+
+        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        
+    </head>
+
+    <body data-spy="scroll" data-target=".navbar-collapse">
+
+  
+      
+        <!-- Preloader -->
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div class="object" id="object_one"></div>
+                    <div class="object" id="object_two"></div>
+                    <div class="object" id="object_three"></div>
+                    <div class="object" id="object_four"></div>
+                </div>
+            </div>
+        </div><!--End off Preloader -->
+
+
+        <div class="culmn">
+            <%if (typeof message!='undefined'){%>
+            <% if(message.length>0) {%> <div class="alert alert-success"> votre message est bien envoyé</div>
+<%}}%>
+            <!--=====================================POPUP===============================-->
+      
+
+            <!--Home page style-->
+
+
+            <nav class="navbar navbar-default navbar-fixed white no-background bootsnav">
+                <!-- Start Top Search -->
+                <div class="top-search">
+                    <div class="container">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Top Search -->
+                <div class="container">    
+                    <!-- Start Atribute Navigation -->
+                    <div class="attr-nav"> 
+                          <ul> <% if (typeof id!='undefined') {%>
+                            <%if (statut=="student") {%>
+
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                                            <i class="fa fa-shopping-bag"></i>
+                         
+                                      <span class="badge">   <%if (typeof nbDeFormationPanier!='undefined' ) {%>
+                                        <%=nbDeFormationPanier%>
+                                        <%}%></span>
+                                        </a>
+                                        <ul class="dropdown-menu cart-list"> 
+      <%if (typeof formPanier!='undefined') {%>           <%formPanier.forEach(f=> { %> 
+                                            <li>
+                                                <a href="#" class="photo"><img src="<%=f.urlImage%>" class="cart-thumb" alt="" /></a>
+                                                <h6><a href="#"><%=f.title%> </a></h6>
+                                                <p class="m-top-10"><%=f.category%> <span class="price">
+                                                   <form action="formations/<%=f.id%>"> <input  class="btn btn-success" type="submit" value="consulter" ></form>
+                                                </span></p>
+                                            </li>
+                              <%})%>      <%}%>
+                                        </ul> 
+                                   </li>
+<%}%>
+<%if (statut=="teacher") {%>
+  
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+         
+            <i class="fa fa-shopping-bag"></i>
+
+      <span class="badge">   <%if (typeof nbapprouvedForm!='undefined' ) {%>
+        <%=nbapprouvedForm%>
+        <%}%></span>
+        </a>
+        <ul class="dropdown-menu cart-list"> 
+<%if (typeof approuvedForm!='undefined') {%>           <%approuvedForm.forEach(f=> { %> 
+            <li>
+                <a href="#" class="photo"><img src="<%=f.urlImage%>" class="cart-thumb" alt="" /></a>
+                <h6><a href="#"><%=f.title%> is publied sucessfully </a></h6>
+                <p class="m-top-10"> check out ur course <span class="price">
+                   <form action="formations/<%=f.id%>"> <input  class="btn btn-success" type="submit" value="consulter" ></form>
+                </span></p>
+            </li>
+<%})%>      <%}%>
+        </ul> 
+   </li>
+<%}%>
+
+<%}%>
+                            <li class="side-menu"><a href="#"><i class="fa fa-bars"></i></a></li>
+                        </ul>
+                    </div>        
+                   
+                    <!-- End Atribute Navigation -->
+
+                    <!-- Start Header Navigation -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="#brand">
+
+                            <img src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/bookmark-circle-blue-512.png" class="logo logo-display m-top-10" alt="" style="width:60px;height:60px">
+                        
+
+                        </a>
+                    </div>
+                    <!-- End Header Navigation -->
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                            <% if(typeof id=='undefined')
+                                {%>
+
+                                <li><a href="#about">About</a></li>                    
+                                          
+                   <%}%>
+                            <% if (typeof id  !='undefined') {       %>
+                            <li><a href="#"><%=nom%></a></li> 
+                            <li><a href="logout">Log out</a></li>                       
+                            <%}%>
+                            <li><a href="#contact">Contact</a></li>  
+                        </ul>
+                    </div>
+                </div>  
+
+
+                <%-include ('partials/sider');-%> 
+
+            </nav>
+
+
+            <!--Home Sections-->
+
+            <%if (statut=='student') {%>  <section id="hello" class="home bg-mega"><%}%>
+                <%if (statut=='teacher') {%>  <section id="hello" class="home2 bg-mega"><%}%>
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="main_home">
+                            <div class="home_text">
+                                <%if (statut=='student') {%> <h1 class="text-white">VOTRE AVENIR <br> COMMENCE ICI</h1>
+                                <h4 class="text-white">
+                                    Apprenez à apprendre <br>Découvrez les compétences de demain <br>et prenez votre carrière en main.</h4>
+                            </div>
+                            <%}%>
+
+                            <%if (statut=='teacher') {%> <h1 class="text-white">Bienvenue   </h1>
+                                <h4 class="text-white">
+                                    Attribuer a nos contenu cours <br>Lancer les tiennes <br>Et prenez votre carrière en main.</h4>
+                            </div>
+                            <%}%>
+
+                            <div class="home_btns m-top-40">
+                                <a href="formations" class="btn btn-default m-top-20">Voir nos formations </a>
+                            </div>
+
+                        </div>
+                    </div><!--End off row-->
+                </div><!--End off container -->
+            </section> <!--End off Home Sections-->
+<br><br><br>
+            <div class="container">
+                    <div class="row">
+                        <div class="about_bottom_content">
+                            <div class="col-md-4">
+                                <div class="about_bottom_item m-top-20">
+                                    <div class="ab_head">
+                                        <div class="ab_head_icon">
+                                            <i class="icofont icofont-fire-burn"></i>
+                                        </div>
+                                        <h6 class="m-top-20"> WE’RE CREATIVE</h6>
+                                    </div>
+                                    <p class="m-top-20">Lorem ipsum dolor sit amet, consectetuer adipiscing ealit, 
+                                        sed diaim nonummy nibsih euismod tincidiunt laorieet doloire
+                                        magna diam aliquafm erat voluitpati. </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="about_bottom_item m-top-20">
+                                    <div class="ab_head">
+                                        <div class="ab_head_icon">
+                                            <i class="icofont icofont-speech-comments"></i>
+                                        </div>
+                                        <h6 class="m-top-20">WE'RE FRIENDLY</h6>
+                                    </div>
+                                    <p class="m-top-20">Lorem ipsum dolor sit amet, consectetuer adipiscing ealit, 
+                                        sed diaim nonummy nibsih euismod tincidiunt laorieet doloire
+                                        magna diam aliquafm erat voluitpati. </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="about_bottom_item m-top-20">
+                                    <div class="ab_head">
+                                        <div class="ab_head_icon">
+                                            <i class="icofont icofont-heart"></i>
+                                        </div>
+                                        <h6 class="m-top-20">WE LOVE MINIMALISM</h6>
+                                    </div>
+                                    <p class="m-top-20">Lorem ipsum dolor sit amet, consectetuer adipiscing ealit, 
+                                        sed diaim nonummy nibsih euismod tincidiunt laorieet doloire
+                                        magna diam aliquafm erat voluitpati. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--End off row-->
+                </div>
+
+            <!--About Sections-->
+            <section id="about" class="about roomy-100">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_about">
+                            <div class="col-md-6">
+                                <div class="about_content">
+                                    <h2>ABOUT US</h2>
+                                    <div class="separator_left"></div>
+<%if(statut=="teacher") {%> <p>Pour ajouter des cours sur le site ,vous pouver lancer des demandes de creation.
+    <br>Lorsque votre demande sera accepté vous recevrer un mail de validation du contenu<br>
+    Le contenu <ul>
+        <li>Définir le contenu pédagogique et le déroulement de la formation</li>
+<li>Contribuer au bon déroulement des actions de formation dans le respect des règles de sécurité des biens et des personnes</li>
+<li>Assurer la veille pédagogique et technique dans son domaine d'intervention</li></ul>
+ </p><%}%>
+    <%if(statut=="student") {%>        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+                                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+                                        magna aliquam erat volutpat. Ut wisi enim ad minim veniam, 
+                                        quis nostrud exerci tation ullamcorper suscipit lobortis 
+                                        nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor
+                                        sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                                        euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                                        Ut wisi enim ad minim veniam, quis nostrud exerci tation 
+                                        ullamcorper suscipit lobortis nisl ut aliquip 
+                                        ex ea commodo consequat. </p><%}%>
+
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about_accordion wow fadeIn">
+                                    <div id="faq_main_content" class="faq_main_content">
+                                        <h6><i class="fa fa-angle-right"></i> DEVELOPPEMENT </h6>
+                                        <div>
+                                            <div class="content">
+                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+                                                    magna aliquam erat volutpat. Ut wisi enim ad minim veniam, </p>
+
+                                            </div>
+                                        </div> <!-- End off accordion item-1 -->
+
+                                        <h6 class="open"><i class="fa fa-angle-right"></i> SYSTEMES ET RESEAUX</h6>
+                                        <div class="open">
+                                            <div class="content">
+                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+                                                    magna aliquam erat volutpat. Ut wisi enim ad minim veniam, </p>
+                                            </div>
+                                        </div> <!-- End off accordion item-2 -->
+
+                                        <h6> <i class="fa fa-angle-right"></i> DATA </h6>
+                                        <div>
+                                            <div class="content">
+                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+                                                    magna aliquam erat volutpat. Ut wisi enim ad minim veniam, </p>
+                                            </div>
+                                        </div> <!-- End off accordion item-3 -->
+
+                                        <h6><i class="fa fa-angle-right"></i> MARKETING ET COMMUNICATION  </h6>
+                                        <div>
+                                            <div class="content">
+                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                                                    sed diam nonummy nibh euismod tincidunt ut laoreet dolore 
+                                                    magna aliquam erat volutpat. Ut wisi enim ad minim veniam, </p>
+                                            </div>
+                                        </div> <!-- End off accordion item-4 -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--End off row-->
+                </div><!--End off container -->
+                <br />
+                <br />
+                <br />
+                <br />
+                <hr />
+                <br />
+                <br />
+              
+            </section> <!--End off About section -->
+
+
+            <!--id video class video-->
+
+
+
+
+
+            <!--Impress section--===========================================================>
+            <section id="impress" class="impress roomy-100">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="main_impress text-center">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <h2 class="text-white text-uppercase">Impressed?  Let’s work together</h2>
+                                <p class="m-top-40 text-white">At vero eos et accusamus et iusto odio dignissimos ducimus qui ditqs praesentium 
+                                    voluptatum deleniti atque corrupti quos dolores et quas molestias</p>
+
+                                <div class="impress_btns m-top-30">
+                                    <a href="" class="btn btn-primary m-top-20">HIRE US</a>
+                                    <a href="" class="btn btn-default m-top-20">HIRE US</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--End off row -->
+                </div><!--End off container -->
+            </section><!-- End off Impress section-->
+
+
+
+
+      
+
+
+
+
+
+            <!--Contact Us Section-->
+
+            <section id="contact" class="contact bg-mega fix">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_contact roomy-100 text-white">
+                            <div class="col-md-4">
+                                <div class="rage_widget">
+                                    <div class="widget_head">
+                                        <h3 class="text-white">
+                                          Nous sommes là pour vous aider</h3>
+                                        <div class="separator_small"></div>
+                                    </div>
+                                    <p>Vous avez une question ? Notre équipe est là pour vous répondre a tous moment </p>
+
+                                    <div class="widget_socail m-top-30">
+                                        <ul class="list-inline">
+                                            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href=""><i class="fa fa-vimeo"></i></a></li>
+                                            <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 sm-m-top-30">
+                                <form action="contact/<%=id%>" method="post">
+                                    <div class="row">
+                                     
+                                   
+                                        <div class="col-sm-6">
+                                            <div class="form-group">  
+                                                <input  name="nom"  required type="text" disabled placeholder="nom" class="form-control" value="<%=nom%>">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">  
+                                                <input  name="prenom" required type="text" disabled placeholder="prenom" class="form-control" value="<%=prenom%>">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">  
+                                                <input  name="email" type="text" placeholder="Email" disabled class="form-control" value="<%=em%>" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">  
+                                                <input  name="tele" required type="text" placeholder="Téléphone" class="form-control" >
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group">  
+                                                <input  name="objet" type="text" placeholder="objet" class="form-control" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group">  
+                                                <textarea class="form-control" rows="6" placeholder="Message" name="content" required></textarea>
+                                            </div>
+                                            <div class="form-group text-center">
+                                                <%if(typeof sent =='undefined') {%> 
+
+                                               <input type="submit"class="btn btn-primary" value="SEND MESSAGE">
+                                               <%}%>
+
+                                               <%if(typeof sent!='undefined') {%> 
+                                                <input type="submit"class="btn btn-sucess" value="message envoyé">
+<%}%>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div><!--End off row -->
+                </div><!--End off container -->
+            </section><!--End off Contact Section-->
+
+
+
+
+
+
+            <!-- scroll up-->
+            <div class="scrollup">
+                <a href="#"><i class="fa fa-chevron-up"></i></a>
+            </div><!-- End off scroll up -->
+
+
+            <footer id="footer" class="footer bg-black">
+                <div class="container">
+                    <div class="row">
+                        <div class="main_footer text-center p-top-40 p-bottom-30">
+                            <p class="wow fadeInRight" data-wow-duration="1s">
+                                Made with 
+                                <i class="fa fa-heart"></i>
+                                by 
+                                <a target="_blank" href="http://bootstrapthemes.co">Bootstrap Themes</a> 
+                                2016. All Rights Reserved
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+
+
+        </div>
+
+            <!-- JS includes -->
+
+            <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+            <script src="assets/js/vendor/bootstrap.min.js"></script>
+
+            <script src="assets/js/jquery.magnific-popup.js"></script>
+            <script src="assets/js/jquery.easing.1.3.js"></script>
+            <script src="assets/js/slick.min.js"></script>
+            <script src="assets/js/jquery.collapse.js"></script>
+            <script src="assets/js/bootsnav.js"></script>
+
+
+            <!-- paradise slider js -->
+
+
+            <script src="http://maps.google.com/maps/api/js?key=AIzaSyD_tAQD36pKp9v4at5AnpGbvBUsLCOSJx8"></script>
+            <script src="assets/js/gmaps.min.js"></script>
+
+            <script>
+                            function showmap() {
+                                var mapOptions = {
+                                    zoom: 8,
+                                    scrollwheel: false,
+                                    center: new google.maps.LatLng(-34.397, 150.644),
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                };
+                                var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+                                $('.mapheight').css('height', '350');
+                                $('.maps_text h3').hide();
+                            }
+
+            </script>
+
+
+
+
+
+            <script src="assets/js/plugins.js"></script>
+            <script src="assets/js/main.js"></script>
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
+
+
+
+<% if(typeof success!='undefined') {%>
+            <% if(success.length > 0){ %>
+                <script>
+                  toastr.success(`${success[0]}`)
+                </script>
+              <% } %>
+              <% if(error.length > 0){ %>
+                <script>
+                  toastr.error(`${error[0]}`)
+                </script>
+              <% } %>
+          <% } %>

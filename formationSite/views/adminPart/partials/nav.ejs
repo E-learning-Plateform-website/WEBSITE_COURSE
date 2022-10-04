@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title> SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+      <link href=" https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"/>
+      <link href=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"/>
+
+
+
+
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+      
+
+      
+<style>
+    .dropdown-menu{
+      top: 60px;
+      right: 0px;
+      left: unset;
+      width: 460px;
+      box-shadow: 0px 5px 7px -1px #c1c1c1;
+      padding-bottom: 0px;
+      padding: 0px;
+    }
+    .dropdown-menu:before{
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: 12px;
+      border:10px solid #343A40;
+      border-color: transparent transparent #343A40 transparent;
+    }
+    .head{
+      padding:5px 15px;
+      border-radius: 3px 3px 0px 0px;
+    }
+    .footer{
+      padding:5px 15px;
+      border-radius: 0px 0px 3px 3px; 
+    }
+    .notification-box{
+      padding: 10px 0px; 
+    }
+    .bg-gray{
+      background-color: #eee;
+    }
+    @media (max-width: 640px) {
+        .dropdown-menu{
+          top: 50px;
+          left: -16px;  
+          width: 290px;
+        } 
+    </style>
+    
+        
+
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="#">Admin</a>
+            <!-- Sidebar Toggle-->
+            
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group" style="color: white;">
+                 
+                </div>
+            </form>
+            <!-- Navbar Search-->
+        
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+              
+                <li class="nav-item dropdown">
+                <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-message"></i>
+                </a>
+                  <ul class="dropdown-menu">
+                    <li class="head text-light bg-dark">
+                      <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-12">
+                          <span>Messages (<%=messages.length%>)</span>
+                         <a href="messages" class="float-right text-light">View All</a>
+
+                        </div>
+                    </li> 
+                    <% messages.forEach(m => {%>
+                    <li class="notification-box">
+                      <div class="row">
+                        <div class="col-lg-3 col-sm-3 col-3 text-center">
+                          <img src="https://icons.veryicon.com/png/128/business/business-4/send-plane-fill-1.png" class="w-50 rounded-circle">
+                        </div>    
+                        <div class="col-lg-8 col-sm-8 col-8">
+                          <strong class="text-info"><%=m.nom%> <%=m.prenom%></strong>
+                          <div>
+                            <%=m.objet%>                          </div>
+                          <small class="text-warning"><%=m.createdAt%></small>
+                        </div>    
+                      </div>
+                    </li> <!--bg-gray-->
+                   <%})%>
+                   
+                  </ul>
+              </li>
+             
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#"><%=nom%>  <%=nom%></a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="/loginAdmin">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+
+
+
+
+
+
+           
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link active" href="#">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                              <%if(typeof contexte!='undefined'){%>
+                                <%=contexte%>
+                                <%}else{%>
+                                  Home<%}%> 
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                               listes
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="users">users</a>
+                                    <a class="nav-link" href="formationsa">formations</a>
+                                    <a class="nav-link" href="messages">messages</a>
+
+                                </nav>
+                            </div>
+                           
+                            <div class="sb-sidenav-menu-heading">Demandes</div>
+                                <a class="nav-link" href="candidatures">
+
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                candidatures
+                            </a>
+                        
+                        </div>
+                    </div>
+                  
+                </nav>
+            </div>

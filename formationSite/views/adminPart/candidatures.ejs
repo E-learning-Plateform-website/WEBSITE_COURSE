@@ -1,0 +1,109 @@
+<style>
+    img
+    {
+         width:50px;
+         height:50px;
+         display: inline;
+    }
+</style>
+
+<%-include ('partials/nav');-%> 
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Candidatures</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item">home</li>
+                            <li class="breadcrumb-item active">Candidatures</li>
+                        </ol>
+          
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                liste des candidatures 
+                            </div>
+                            <div class="card-body" style="margin-left: 30px;">
+                            
+
+<%candidatures.forEach(c=>  {%>
+                                
+                                <div class="col-lg-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header">
+                                            <i class="fas fa-user"></i>
+                                        Demande de  <%=c.nom%>
+                                        
+                                        </div>
+                                        <div class="card-body">
+                                         <tr>
+                                        <td rowspan="2">  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/480px-User_icon_2.svg.png">
+                                        </td> 
+                                        <td><b>email : </b> <%=c.email%></td>
+                                        
+                                       <td> <p><%=c.bio%></p></td>
+                              </tr> <ul> <li>
+                                <a href="<%=c.urlLinkedin%>"  style="text-decoration: none;">profile linkedin </a>   </li>
+                            <li>  <a href="<%=c.urlCv%>"  style="text-decoration: none;">curriculum </a> </li>
+                            <li>   <a href="<%=c.lettreDeMotivation%>"  style="text-decoration: none;">Lettre de motivation </a>    </li>
+                        </ul>   
+                                        
+
+                                  </div>
+                                     <div class="card-footer d-flex align-items-center ">
+
+                                        <%if(!c.isapprouved) {%>    
+                                            <form  action="candidatures/accept/<%=c.id%>"> <input  type="submit" class="btn btn-info" value="accepter" ></form> 
+                                      <%}%> 
+                                      <%if(c.isapprouved) {%>  
+                                        <button type="button" class="btn btn-success" disabled>Accepté</button>
+
+                                  <%}%> 
+                                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+<%});%>
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+
+                
+                <%-include ('partials/footer');-%> 
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+        <script>
+            function accept(n)
+            {
+                n=true;
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+

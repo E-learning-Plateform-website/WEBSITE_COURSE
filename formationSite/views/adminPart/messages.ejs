@@ -1,0 +1,63 @@
+<%-include ('partials/nav');-%> 
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">liste des messages</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item">home</li>
+                            <li class="breadcrumb-item active">Messages</li>
+                        </ol>
+                  
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                DataTable Example
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>nom</th>
+                                            <th>Prenom</th>
+                                            <th>Email</th>
+                                            <th>Téléphone</th>
+                                            <th>objet </th>
+                                            <th>contenu </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                         
+                                                       
+                                    <tbody>
+                                        <%messages.forEach(u => {%>
+                                            
+                                     
+                                        <tr>
+                                            <td><%=u.nom%></td>
+                                            <td><%=u.prenom%></td>
+                                            <td><%=u.email%></td>
+                                            <td><%=u.tele%></td>
+                                            <td><%=u.objet%></td>
+                                            <td><%=u.content%></td>
+                                          
+
+                                        </tr> <%  });%>
+                        
+                              
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <%-include ('partials/footer');-%> >
+
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>

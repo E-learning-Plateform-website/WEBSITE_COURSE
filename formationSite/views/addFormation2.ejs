@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+        <title> add formation</title>
+        
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+        
+
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/css/toastr.min.css">
+        <link rel="stylesheet" href="mentoring/style.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    </head>
+    <body>
+    
+
+      <section class="vh-100  h-100 bg-dark ">
+        <div class="container py-5 h-100">
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5">
+                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Definir chapitres</h3>
+               
+      <% form.nbOfChaps%>
+                  <%if(typeof s=='undefined') {   var s=1 } else {s++}%> 
+                   <%if(typeof test =='undefined') {%><form action="addFormation2/<%=form._id%>/<%=s%>" method="post"><%}
+                     else 
+                    {
+                      %> <form action="/addFormation2/<%=form._id%>/<%=s%>" method="post"><%}%>
+                  
+
+                    <h3> section  <%=s%></h3>
+                    <hr>
+                    <div class="row">
+                      
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Entrer le titre</label>
+                        <input type="text"required name="title"  class="form-control" id="exampleFormControlInput1" placeholder="Enter le titre de section ">
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Entrer le code de l'url de video <i>(optionnelle)</i></label>
+                        <input type="text" name="urlVideo"  class="form-control" placeholder="Enter l'url video  ">
+                      </div>
+
+                      </div>
+  
+                    <div class="form-group">
+                     
+                      <label>contenu du section </label>
+
+                    <textarea rows="5" class="form-control" name="content"  required name="content" placeholder="Entrer  contenu du section ">
+                    
+                      </textarea>
+                      </div>
+ <br><br><br>
+
+                      <div  class="d-flex justify-content-between">  
+                            <input  class="btn btn-primary btn-lg" type="submit" value="enregistrer" />
+                            
+                           <a href="/">go home </a>
+
+                            </div>
+
+                 
+                      </form>
+
+                   
+                     
+                    <div class="row">
+                      <div class="col-md-6 mb-4 d-flex align-items-center">
+      
+      
+                      </div>
+                    
+                    </div>
+      
+                    <div class="mt-4 pt-2">
+                     
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  </body>
+  </html>
+
+
+ 

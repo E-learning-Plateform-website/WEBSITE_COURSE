@@ -1,0 +1,90 @@
+<html>
+    <head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <link href="css/home.css" rel="stylesheet">
+    
+<style>
+.wlcm
+{
+  width: 500x;
+  height: 500px;
+  margin-left: 150px;
+}
+</style>
+<%-include ('partials/nav');-%> 
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                      <br><br>
+                        <div class="container " >
+                          <div class="row" >
+                          <div class="col-md-3">
+                            <div class="card-counter primary">
+                              <i class="fa fa-user"></i>
+                              <span class="count-numbers"><%=nbTuteurs%></span>
+                              <span class="count-name">Tuteur</span>
+                            </div>
+                          </div>
+                        
+                          <div class="col-md-3">
+                            <div class="card-counter danger">
+                              <i class="fa fa-users"></i>
+                              <span class="count-numbers"><%=nbApprenant%></span>
+                              <span class="count-name">Apprenant</span>
+                            </div>
+                          </div>
+                        
+                          <div class="col-md-3">
+                            <div class="card-counter success">
+                              <i class="fa fa-database"></i>
+                              <span class="count-numbers"><%=nbf%></span>
+                              <span class="count-name">Formations</span>
+                            </div>
+                          </div>
+                        
+                          <div class="col-md-3">
+                            <div class="card-counter info">
+                              <i class="fa fa-users"></i>
+                              <span class="count-numbers"><%=nbu%></span>
+                              <span class="count-name">Users</span>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <br>   <ol class="breadcrumb mb-4">
+                          <li class="breadcrumb-item inactive">home</li>
+                      </ol>
+                    
+                  
+                        <div class="card mb-4 container">
+                           
+                            <div class="card-body">
+                               <img  class="wlcm"src="https://img.freepik.com/vecteurs-libre/administrateurs-systeme-administrateurs-systeme-assurent-maintenance-racks-serveurs-administration-systeme-entretien-configuration-systemes-informatiques-concept-reseaux-palette-bleu-corail-rose-illustration-vectorielle_335657-1642.jpg?w=2000">
+                 
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <%-include ('partials/footer');-%> >
+
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>
+
+
+        
+       
+        
+
+
+

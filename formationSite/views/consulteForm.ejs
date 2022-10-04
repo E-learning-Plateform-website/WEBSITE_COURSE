@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+               <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+               <style>
+                #desc
+                {
+                     width:50px;
+                     height:50px;
+                     display: inline;
+                }
+            </style>    </head>
+    
+    </head>
+    <body >
+
+       
+        
+        <div class="container mt-5">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item"><a href="/formations" >Cours </a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><%=formation.title%>
+                </li>
+    
+                </ol>
+              </nav>
+            <div class="row" style=" margin-bottom: 200px">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1"><%=formation.title%></h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2">Posted on  <%=new Date(formation.createdAt).toLocaleDateString("el-GR")%></div>
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!"><%=formation.category%></a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img class="img-fluid rounded" src="<%=formation.urlImage%>" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4"> <%=formation.description%></p>
+
+                         <%   if(typeof j=='undefined')  j=0;    %>
+                         <br><br>
+                         <div class="float-left">
+   
+                        <%   if(typeof id !='undefined')    {%>  <form action="/formations/fr/<%=formation._id%>/<%=j%>" method="get">
+                            <input  type="submit" value="commencer cours " class="btn btn-primary float-left" /> </form>  
+                      <%}%>
+                           </div>
+                        
+                          
+      
+                        
+                        </section>
+                    </article>
+        
+               
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                
+                    <!-- Categories widget-->
+                    <div class="card mb-4">
+                        <div class="card-header"><b>Tuteur</b></div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-15"> 
+                                    <ul class="list-unstyled mb-0">
+                                        <li><img  id="desc" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/480px-User_icon_2.svg.png">
+                                            <%=candidat.nom%></li>
+                                        <li> <b><%=candidat.statut%></b></li>
+                                        <li> <%=candidat.bio%></li>
+                                        <li> email:<%=candidat.email%></li>
+
+
+                                    </ul>
+                                </div>
+                  
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side widget-->
+                    <div class="card mb-4">
+                        <div class="card-header"> <b>Description</b> </div>
+                        <div class="card-body">
+                            <%for(var z=0;z<formation.chapters.length;z++) {%>
+                                <%i=z;i++%>
+                                <b>section <%=i%>:</b><p class="text-muted  mb-2"> <%=formation.chapters[z].title%></p>
+                            <%}%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <scipt>
+        
+            </scipt>
+    </body>
+    </html>
